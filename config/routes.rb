@@ -1,11 +1,22 @@
 Twitterbasic::Application.routes.draw do
-  get "home/index"
+  resources :follows
+
+  resources :twitts
+
+  match "home/index" => "home#index", :as => "home"
 
   devise_for :users
 
+  match "wall/:user_id" => "home#user_wall", :as => "user_wall"
+
+  resources :users
+  post "search/" => "home#user_search", :as => "user_search"
+  get "follow/:following_id" => "follows#follow", :as => "follow"
+  get "profile" => "home#profile", :as => "profile"
+
   devise_scope :user do
-  get "sign_out", :to => "devise/sessions#destroy"
-end
+    get "sign_out", :to => "devise/sessions#destroy"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

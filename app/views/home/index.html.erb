@@ -1,3 +1,24 @@
 <h1>Ana Sayfa</h1>
-<p>Deneme 2/views/home/index.html.erb</p>
+<% if current_user.role_id == 1 %>
+    <p><%= link_to "New Tweet", new_twitt_path %></p>
+    <p><%= link_to "Profile", profile_path %></p>
+<div>
+  <p><h2>Following Tweets</h2></p>
+  <% @follow_tweets.each do |tweet| %>
+    <p><%= link_to tweet.user.nick, user_path(tweet.user_id) %>-
+    <%= tweet.post %></p>
+  <% end %>
+  <%= form_tag "search" do %>
+      <div class="field">
+        <p><h3>User Search</h3></p>
+        <%= label_tag "Nick name :" %>
+        <%= text_field_tag :user_nick %>
+        <%= submit_tag "Search" %>
+      </div>
+  <% end %>
+</div>
+<% end %>
+<% if current_user.role_id == 2 %>
+    adminn
+<% end %>
 <%= link_to "Oturumu kapat", "sign_out" %>

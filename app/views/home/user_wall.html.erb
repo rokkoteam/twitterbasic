@@ -1,0 +1,14 @@
+<h1><%= @user.nick %></h1>
+<div>
+  <h2><%= @user.nick %> Tweets</h2>
+  <% @tweets.each do |tweet| %>
+     <p><%= link_to tweet.user.nick, user_path(tweet.user_id) %>-
+    <%= tweet.post %></p>
+  <% end %>
+</div>
+<%= form_tag "", :method => :post do %>
+    <%= hidden_field_tag :user_id, @user.id %>
+    <%= text_area_tag :post %>
+    <%= submit_tag "Duvarında Paylas" %>
+<% end %>
+<%= link_to "Ana Sayfa", root_path %>

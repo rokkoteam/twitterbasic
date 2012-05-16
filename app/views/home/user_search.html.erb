@@ -1,0 +1,16 @@
+<h1>Search Results</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.nick %></td>
+    <td><%= link_to 'Show Wall', user_wall_path(user.id) %></td>
+    <td><%= link_to 'Follow', follow_path(user.id) %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,10 @@
+<h1>Profile</h1>
+<div>
+  <h2>My Tweets</h2>
+  <% @my_tweets.each do |tweet| %>
+     <p><%= link_to tweet.user.nick, user_path(tweet.user_id) %>-
+    <%= tweet.post %></p>
+  <% end %>
+</div>
+<%= link_to "Bilgileri Düzenle", edit_user_path(current_user.id) %>
+<%= link_to "Ana Sayfa", root_path %>
