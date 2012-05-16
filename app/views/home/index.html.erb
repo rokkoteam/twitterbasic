@@ -3,12 +3,7 @@
     <p><%= link_to "New Tweet", new_twitt_path %></p>
     <p><%= link_to "Profile", profile_path %></p>
 <div>
-  <p><h2>Following Tweets</h2></p>
-  <% @follow_tweets.each do |tweet| %>
-    <p><%= link_to tweet.user.nick, user_path(tweet.user_id) %>-
-    <%= tweet.post %></p>
-  <% end %>
-  <%= form_tag "search" do %>
+   <%= form_tag "search" do %>
       <div class="field">
         <p><h3>User Search</h3></p>
         <%= label_tag "Nick name :" %>
@@ -16,9 +11,16 @@
         <%= submit_tag "Search" %>
       </div>
   <% end %>
+  <p><h2>Following Tweets</h2></p>
+  <% @follow_tweets.each do |tweet| %>
+    <p><%= link_to tweet.user.nick, user_wall_path(tweet.user_id) %>-
+    <%= tweet.post %></p>
+      <p><%= tweet.updated_at %></p>
+  <% end %>
 </div>
 <% end %>
 <% if current_user.role_id == 2 %>
-    adminn
+    <%= link_to "Users", users_path %>-
+    <%= link_to "Twitts", twitts_path %><br/>
 <% end %>
 <%= link_to "Oturumu kapat", "sign_out" %>
