@@ -12,6 +12,7 @@ Twitterbasic::Application.routes.draw do
   resources :users
   post "search/" => "home#user_search", :as => "user_search"
   get "follow/:following_id" => "follows#follow", :as => "follow"
+  get "un_follow/:following_id" => "follows#un_follow", :as => "un_follow"
   get "profile" => "home#profile", :as => "profile"
 
   devise_scope :user do

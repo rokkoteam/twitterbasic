@@ -10,7 +10,11 @@
   <tr>
     <td><%= user.nick %></td>
     <td><%= link_to 'Show Wall', user_wall_path(user.id) %></td>
-    <td><%= link_to 'Follow', follow_path(user.id) %></td>
+    <% if Follow.where(:following_id => user.id, :user_id => current_user.id).blank? %>
+        <td><%= link_to 'Follow', follow_path(user.id) %></td>
+    <% else %>
+        <td><%= link_to 'UnFollow', un_follow_path(user.id) %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
