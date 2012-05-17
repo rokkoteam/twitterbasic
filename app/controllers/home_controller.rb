@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   def user_search
     keyword = params[:user_nick]
     keyword = "%" + keyword + "%"
-    @users = User.where("nick like ?",keyword)
+    @users = User.where("nick like ? AND id <> ?",keyword, current_user.id)
   end
 
   def user_wall

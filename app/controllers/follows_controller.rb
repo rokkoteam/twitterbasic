@@ -38,11 +38,28 @@ class FollowsController < ApplicationController
   end
 
   def follow
-    @follow = Follow.new(:following_id => params[:following_id], :user_id => current_user.id)
-    if @follow.save
+    if !Follow.where(:following_id => params[:following_id], :user_id => current_user.id).blank?
       redirect_to root_path
     else
+      @follow = Follow.new(:following_id => params[:following_id], :user_id => current_user.id)
+      if @follow.save
+        redirect_to root_path
+      else
+        redirect_to root_path
+      end
+    end
+  end
+
+  def un_follow
+    if Follow.where(:following_id => params[:following_id], :user_id => current_user.id).blank?
       redirect_to root_path
+    else
+      @follow = Follow.where(:following_id => params[:following_id], :user_id => current_user.id).first
+      if @follow.destroy
+        redirect_to root_path
+      else
+        redirect_to root_path
+      end
     end
   end
 
