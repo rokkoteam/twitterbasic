@@ -17,7 +17,7 @@
       </div>
   <% end %>
   <p><h2>Following Tweets</h2></p>
-  <% @follow_tweets.each do |tweet| %>
+  <% @follow_tweets.reverse.each do |tweet| %>
     <p><%= link_to tweet.user.nick, user_wall_path(tweet.user_id) %>-
     <%= tweet.post %></p>
       <p><%= tweet.updated_at %></p>
