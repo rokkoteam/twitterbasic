@@ -17,23 +17,19 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label "Nick" %>
+    <%= f.label "Nick*" %>
     <%= f.text_field :nick %>
   </div>
   <div class="field">
-    <%= f.label "Password" %>
+    <%= f.label "Parola" %>
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label "password retyp" %>
+    <%= f.label "Parola tekrar" %>
     <%= f.text_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= f.label "Role" %>
-    <%= f.select(:role_id, Role.all.collect{ |g| [g.name, g.id] }) %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Kullanıcı Oluştur" %>
   </div>
 <% end %>
 

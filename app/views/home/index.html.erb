@@ -1,37 +1,30 @@
-
-
-
-
 <h1> <center><embed src="http://widget.bigoo.ws/generators/LED-Scroller/LCD3.swf" FlashVars="t=ROKKO TEAM &msg=Visit bigoo.ws&b=1" quality="high" bgcolor="#000000" width="450" height="60" name="LCDScroller" align="middle" allowScriptAccess="samedomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /><br><font size="-2"><a href="http://bigoo.ws"></a></font></center> </h1>
- <div style="float: right;">  <embed src="http://widget.bigoo.ws/generators/flash-clock/show.swf?baseURL=http://widget.bigoo.ws/generators/flash-clock/&clickURL=http://www.bigoo.ws&linktype=0&clickLABEL=Clock Generator - bigoo.ws&type=1&cl=3" quality="high" bgcolor="#ffffff" width="176" height="177" name="show" align="middle" wmode="transparent" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" ></embed></div><noscript><a href="http://html-java-kod-bul.tr.gg">sitene ekle</a></noscript>
+<div style="float: right;">  <embed src="http://widget.bigoo.ws/generators/flash-clock/show.swf?baseURL=http://widget.bigoo.ws/generators/flash-clock/&clickURL=http://www.bigoo.ws&linktype=0&clickLABEL=Clock Generator - bigoo.ws&type=1&cl=3" quality="high" bgcolor="#ffffff" width="176" height="177" name="show" align="middle" wmode="transparent" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" ></embed></div><noscript><a href="http://html-java-kod-bul.tr.gg">sitene ekle</a></noscript>
 <% if current_user.role_id == 1 %>
-    <p><%= link_to "New Tweet", new_twitt_path %></p>
-    <p><%= link_to "Profile", profile_path %></p>
+    <%= link_to ">Yeni Tweet<", new_twitt_path %>
+    <%= link_to ">Profile<", profile_path %>
+    <%= link_to ">Oturumu kapat<", "sign_out" %>
 <div>
    <%= form_tag "search" do %>
       <div class="field">
-        <p><h3>User Search</h3></p>
-        <%= label_tag "Nick name :" %>
+        <p><h3>Kullanıcı Ara</h3></p>
+        <%= label_tag "Kullanıcı Adı :" %>
         <%= text_field_tag :user_nick %>
-        <%= submit_tag "Search" %>
+        <%= submit_tag "Ara" %>
       </div>
   <% end %>
-  <p><h2>Following Tweets</h2></p>
+  <p><h2>Takiptekiler</h2></p>
   <% @follow_tweets.reverse.each do |tweet| %>
-    <p><%= link_to tweet.user.nick, user_wall_path(tweet.user_id) %>-
-    <%= tweet.post %></p>
-      <p><%= tweet.updated_at %></p>
+    <br> <%= link_to tweet.user.nick, user_wall_path(tweet.user_id) %>-</br>
+    <p><%= tweet.post %> </p>
+
   <% end %>
 </div>
 <% end %>
 <% if current_user.role_id == 2 %>
-    <%= link_to "Users", users_path %>-
+    <%= link_to "Kullanıcı", users_path %>-
     <%= link_to "Twitts", twitts_path %><br/>
 <% end %>
-<%= link_to "Oturumu kapat", "sign_out" %>
-
-
-
 <style type="text/css"> <!-- td.nav_heading{background-image:url(http://img.webme.com/pic/r/razor-designs/dwknavheading.gif); width:185px;height:38px;} td.nav_heading:hover{background-image:url(http://img.webme.com/pic/r/razor-designs/dwknavheading.gif); width:185px;height:38px;} td.nav{color: #fff;width: 185px;height: 33px;background-image:url(http://img.webme.com/pic/r/razor-designs/dwkbutton.gif);} td.nav:hover{color: #fff;width: 185px;height: 33px;background-image:url(http://img.webme.com/pic/r/razor-designs/dwkbuttonhover.gif);} td.nav a{color: #ffffff;font-size: 13px;} td.edit_content_top{background-image:url();} td.edit_content_top:hover{background-image:url();} td.edit_content_bottom2{background-image:url();} td.edit_content_bottom2:hover{background-image:url();} td.edit_content_bottom{background-image:url();background-color:transparent;} td.edit_content{background-image:url();} td.edit_rb_footer {visibility:hidden;} td.edit_below_nav {visibility:hidden;} td.edit_navi_headbg{background-image:url();background-color:transparent;} td.sidebar_heading{background-image:url(http://img.webme.com/pic/r/razor-designs/dwksidebar.gif);width:168px;height:38px;} td.sidebar_heading:hover{background-image:url(http://img.webme.com/pic/r/razor-designs/dwksidebar.gif);width:168px;height:38px;} td.edit_rb_footer {visibility:hidden;} td.edit_rechts_sbg{visibility:hidden;} td.edit_rechts_cbg{background-image:url();background-color:transparent;} td.edit_header_full{background-image:url();} td.edit_rechts_bottom{background-image:url();background-color:transparent;} body{background-image:url(http://img.webme.com/pic/f/fatboy/schwarz.jpg);} td.shouty{background-image:url();background-color:transparent;} td.shouty2{background-image:url();background-color:transparent;} td.shouty3{background-image:url();background-color:transparent;} td.shouty4{background-image:url();background-color:transparent;} td.shouty5{background-image:url();background-color:transparent;} td.edit_header_full{width: 921px;background-image: url(http://img.webme.com/pic/r/razor-designs/dwkheader.jpg);height: 130px;} td.edit_header_full:hover{width: 921px;background-image: url(http://img.webme.com/pic/r/razor-designs/dwkheader.jpg);height: 130px;} <!-- body {background-image:url(http://img.webme.com/pic/r/razor-designs/dwkwallpaper.jpg);background-attachment: fixed;} --></style>
  <div align="center"> <form action="http://www.google.com/search" target="_blank" name="f">                 <table height="15" cellspacing="0" cellpadding="0" width="159" align="center">                 <tbody>                 <tr valign="middle">                 <td valign="top" align="center" width="426" height="40"><a title="Google.Com" target="_blank" href="http://www.google.com.tr" _fcksavedurl="http://www.google.com.tr"><img border="0" alt="" src="http://www.google.com/logos/Logo_25wht.gif" _fcksavedurl="http://www.google.com/logos/Logo_25wht.gif"></a><br />                 <input style="FONT-SIZE: 10pt; TEXT-ALIGN: center" mce_style="FONT-SIZE: 10pt; TEXT-ALIGN: center" maxlength="256" size="18" name="q" /> <SCRIPT>document.f.q.focus();</SCRIPT><input type="hidden" name="ie" value="ISO-8859-9" /> <input type="hidden" name="hl" value="tr"<br />                 <input type="submit" name="btnG" value="Google'da Ara"></td>                 </tr>                 <tr>                 <td valign="top" align="center" width="689" height="1">                 <p><input type="radio" checked="checked" name="lr" >Web'te <input type="radio" name="lr" value="lang_tr" >Türkçe</p>                 </td>                 </tr>                 </tbody>                 </table>                 </form> <noscript><a href="http://html-java-kod-bul.tr.gg">html kodları</a></noscript> </div>
 
